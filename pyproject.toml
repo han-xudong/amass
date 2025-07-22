@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amass"
+version = "1.0.1"
+description = "AMASS: Archive of Motion Capture as Surface Shapes"
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    {name = "Nima Ghorbani", email = "nghorbani@tuebingen.mpg.de"},
+]
+maintainers = [
+    {name = "Nima Ghorbani", email = "nghorbani@tuebingen.mpg.de"},
+]
+license = {file = "LICENSE.txt"}
+keywords = ["motion capture", "body model", "amass"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Researchers",
+    "Natural Language :: English",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: BSD",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+]
+dependencies = [
+  "dotmap==1.3.30",
+  "jupyter",
+  "numpy==1.24.0",
+  "PyYAML==6.0.2",
+  "tqdm==4.67.1",
+  "transforms3d==0.4.2",
+]
+
+[project.urls]
+Homepage = "https://nghorbani.github.io"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+
+[tool.setuptools.dependencies]
+body_visualizer = { path = "third_party/body_visualizer", develop = true }
+human_body_prior = { path = "third_party/human_body_prior", develop = true }
